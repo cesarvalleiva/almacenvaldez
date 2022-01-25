@@ -7,14 +7,6 @@
   align-items: center;
 }
 
-.cerrarSesion {
-  width: 30px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  font-size: 20px;
-}
-
 .secciones {
   width: 95%;
   height: calc(100% - 90px);
@@ -25,36 +17,102 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
-.pedido {
-  width: 98%;
-  height: 48%;
-  background-color: rgb(180, 137, 213);
-  border-radius: 10px;
+.contenedorTituloProducto {
+  border-radius: 5px !important;
+  margin-bottom: 10px;
+  padding: 1px;
+  border: 1px solid rgb(110, 53, 154) !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
+}
+
+.contenedorTituloYPrecio {
+  width: 100%;
+  min-height: 60px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between !important;
   align-items: center;
-  color: #fff;
+  padding-left: 10px;
 }
 
-.pedido p {
+.accordion-button.collapsed {
+  padding: 0 !important;
+  background-color: #ffffff !important;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #000 !important;
+  background-color: #ffffff !important;
+  padding: 0 !important;
+}
+
+.nombreProducto {
+  width: 220px;
+  font-weight: 700;
+  color: rgb(110, 53, 154) !important;
+}
+
+.precioProducto {
+  font-weight: 700;
+  color: rgb(110, 53, 154) !important;
+}
+
+.contenedorTituloProducto h2 p {
   margin: 0;
 }
 
-.pedido a {
-  margin-top: 10px;
-  font-size: 20px;
-  color: #fff;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.contenedorTituloProducto h2 img {
+  width: 50px;
 }
 
-.pedido i {
-  font-size: 40px;
+.accordion-button::after {
+  width: 10px !important;
+  background-image: none !important;
+}
+
+.accordion-body {
+  padding: 10px !important;
+}
+
+.contenedorTalles {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.talle {
+  width: 14%;
+  /* border: 1px solid rgb(110, 53, 154) !important; */
+  background-color: rgb(188, 160, 238);
+  color: #fff;
+  border-radius: 2px;
   text-align: center;
+}
+
+.cantidad {
+  width: 14%;
+  text-align: center;
+  color: rgb(114, 114, 114);
+  padding-top: 5px;
+  font-size: 18px;
+}
+
+.btn-agregar {
+  width: 100%;
+  padding-top: 2px !important;
+  margin-top: 10px;
+}
+
+.btn-agregar:focus {
+  box-shadow: none !important;
+}
+
+.swal2-popup {
+  font-family: 'Source Sans Pro', sans-serif;
 }

@@ -42,14 +42,3 @@
 .btn-ingresar:hover {
   background-color: rgb(123, 147, 241) !important;
 }
-
-@media (max-width: 480px) {
-  .contenedorLogin {
-    /* justify-content: flex-start; */
-  }
-
-  .contenedorFormLogin {
-    width: 95%;
-    /* margin-top: 100px !important; */
-  }
-}

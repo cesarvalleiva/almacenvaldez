@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { Context } from './store/appContext';
 import Login from './pages/Login';
 import Home from './pages/Home';
@@ -16,8 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home" element={usuario ? <Home /> : <Navigate to="/" />} />
-          <Route path="/pedidos" element={usuario ? <Pedidos /> : <Navigate to="/" />} />
-          <Route path="/producto/:id" element={usuario ? <Producto /> : <Navigate to="/" />} />
+          <Route path="/carrito" element={usuario ? <Pedidos /> : <Navigate to="/" />} />
+          <Route path="/:id" element={usuario ? <Producto /> : <Navigate to="/" />} />
         </Routes>
       </Router>
   );

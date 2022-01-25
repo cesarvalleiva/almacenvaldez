@@ -16,6 +16,7 @@ const Login = () => {
         setUsuario(true)
     }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const verifyUser = () => {
         if(usuario) {
             navigate('/home');
@@ -24,6 +25,7 @@ const Login = () => {
 
     useEffect(() => {
         verifyUser()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
