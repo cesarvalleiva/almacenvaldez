@@ -1,0 +1,24 @@
+.containerProducto {
+  width: 100vw;
+  background-color: rgb(110, 53, 154);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contenedorProducto {
+  width: 95%;
+  height: calc(100% - 155px);
+  background-color: #fff;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cardProducto img {
+  border-radius: 10px;
+}
