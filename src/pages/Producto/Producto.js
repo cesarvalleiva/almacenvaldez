@@ -1,72 +1,50 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../../store/appContext';
+import { motion } from 'framer-motion';
 import './Producto.css'
 
 const Producto = () => {
     const {altura} = useContext(Context);
-    return ( 
-        <div className='containerProducto' style={{height: `${altura}px`}}>
-            <div className='contenedorProducto'>
-                <Link to="/">Volver</Link>
-                <div className="card cardProducto border-0">
-                    <img src={require('../../assets/img/remeraluna.png')} className="card-img-top" alt="remera luna" />
-                    <div className="card-body cuerpoDetalleProducto">
-                        <h5 className="card-title d-flex justify-content-between mb-3">Remera Luna <p>$ 1600</p></h5>
-                        <div className='contenedorTallesDetalleProducto'>
-                            <div className='contenedorTalleCantidad'>
-                                <p>S</p>
-                                <div>
-                                    <button className='btn btn-ajustar-cantidad me-3 pt-1 pb-1 ps-3 pe-3'>-</button>
-                                    0
-                                    <button className='btn btn-ajustar-cantidad ms-3 pt-1 pb-1 ps-3 pe-3'>+</button>
+    return (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit = {{ opacity: 0}}>
+            <div className='containerProducto' style={{height: `${altura}px`}}>
+                <div className='contenedorProducto'>
+                    <Link to="/home">Volver</Link>
+                    <div className="card cardProducto">
+                        <img src={require('../../assets/img/remeraluna.png')} className="card-img-top" alt="remera luna" />
+                        <div className="card-body cuerpoDetalleProducto">
+                            <h5 className="card-title d-flex justify-content-between mb-3">Remera Luna <p>$ 1600</p></h5>
+                            <div className='contenedorTallesDetalleProducto'>
+                                <div className='w-100 d-flex justify-content-between align-items-center'>
+                                    <p>Color: </p>
+                                    <select className="w-75 form-select" aria-label="Default select example">
+                                        <option defaultValue>Elegir color</option>
+                                        <option value="1">Negra</option>
+                                        <option value="2">Blanca</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div className='contenedorTalleCantidad'>
-                                <p>M</p>
-                                <div>
-                                    <button className='btn btn-ajustar-cantidad me-3 pt-1 pb-1 ps-3 pe-3'>-</button>
-                                    0
-                                    <button className='btn btn-ajustar-cantidad ms-3 pt-1 pb-1 ps-3 pe-3'>+</button>
+                                <div className='w-100 d-flex mt-3 justify-content-between align-items-center'>
+                                    <p>Talle: </p>
+                                    <select className="w-75 form-select" aria-label="Default select example">
+                                        <option defaultValue>Elegir talle</option>
+                                        <option value="1">S</option>
+                                        <option value="2">M</option>
+                                        <option value="1">L</option>
+                                        <option value="1">XL</option>
+                                        <option value="1">XXL</option>
+                                        <option value="1">XXXL</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div className='contenedorTalleCantidad'>
-                                <p>L</p>
-                                <div>
-                                    <button className='btn btn-ajustar-cantidad me-3 pt-1 pb-1 ps-3 pe-3'>-</button>
-                                    0
-                                    <button className='btn btn-ajustar-cantidad ms-3 pt-1 pb-1 ps-3 pe-3'>+</button>
-                                </div>
-                            </div>
-                            <div className='contenedorTalleCantidad'>
-                                <p>XL</p>
-                                <div>
-                                    <button className='btn btn-ajustar-cantidad me-3 pt-1 pb-1 ps-3 pe-3'>-</button>
-                                    0
-                                    <button className='btn btn-ajustar-cantidad ms-3 pt-1 pb-1 ps-3 pe-3'>+</button>
-                                </div>
-                            </div>
-                            <div className='contenedorTalleCantidad'>
-                                <p>XXL</p>
-                                <div>
-                                    <button className='btn btn-ajustar-cantidad me-3 pt-1 pb-1 ps-3 pe-3'>-</button>
-                                    0
-                                    <button className='btn btn-ajustar-cantidad ms-3 pt-1 pb-1 ps-3 pe-3'>+</button>
-                                </div>
-                            </div>
-                            <div className='contenedorTalleCantidad'>
-                                <p>XXXL</p>
-                                <div>
-                                    <button className='btn btn-ajustar-cantidad me-3 pt-1 pb-1 ps-3 pe-3'>-</button>
-                                    0
-                                    <button className='btn btn-ajustar-cantidad ms-3 pt-1 pb-1 ps-3 pe-3'>+</button>
+                                <div className="d-grid gap-2 mt-3">
+                                    <button className="btn btn-success btn-agregar" type="button">Agregar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
      );
 }
  
