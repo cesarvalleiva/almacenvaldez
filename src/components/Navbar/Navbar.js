@@ -5,7 +5,7 @@ import './Navbar.css'
 
 const Navbar = () => {
     let navigate = useNavigate()
-    const {setUsuario} = useContext(Context)
+    const {setUsuario, carrito} = useContext(Context)
 
     const cerrarSesion = () => {
         localStorage.removeItem('usuario')
@@ -18,6 +18,7 @@ const Navbar = () => {
             <div className='menu'>
                 <Link to="/home"><img src={require('../../assets/img/logoalmacen.png')} alt="Logo Almacen Valdez"/></Link>
                 <div className='cerrarSesion'>
+                    {carrito.length === 0 ? '' : carrito.length}
                     <Link to="/carrito"><i className="fas fa-shopping-cart violetaFondo"></i></Link>
                     <i className="fas fa-power-off" onClick={() => cerrarSesion()}></i>
                 </div>
