@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/almacenvaldez/static/css/main.83698418.css",
+    "main.js": "/almacenvaldez/static/js/main.2febc161.js",
+    "static/js/787.9ecf5f4c.chunk.js": "/almacenvaldez/static/js/787.9ecf5f4c.chunk.js",
+    "static/media/gorraazul.png": "/almacenvaldez/static/media/gorraazul.ffd8c79f96f1ce4e14de.png",
+    "static/media/gorraroja.png": "/almacenvaldez/static/media/gorraroja.9ef7f096ffb89463925e.png",
+    "static/media/logoalmacen.png": "/almacenvaldez/static/media/logoalmacen.d6c44b8bb99add03502c.png",
+    "static/media/fav.png": "/almacenvaldez/static/media/fav.c4eb8aa246d1763876a7.png",
+    "static/media/tazavaldez.png": "/almacenvaldez/static/media/tazavaldez.4e74cef2a1d8bdc4ce35.png",
+    "static/media/comboremera.png": "/almacenvaldez/static/media/comboremera.ff8b59a1829baee9c1af.png",
+    "static/media/vasoguira.png": "/almacenvaldez/static/media/vasoguira.b52c555c16b59a64dabe.png",
+    "static/media/discoeltiempoylaserenata.png": "/almacenvaldez/static/media/discoeltiempoylaserenata.5d8aeb0f27bede4b5786.png",
+    "static/media/remeraluna.png": "/almacenvaldez/static/media/remeraluna.4092ff7e59dbd6cc030f.png",
+    "static/media/remeralunanegra.png": "/almacenvaldez/static/media/remeralunanegra.c2b2941a6e4e077a55a2.png",
+    "static/media/logoalmacenblanco.png": "/almacenvaldez/static/media/logoalmacenblanco.304636a918d97fbabfec.png",
+    "index.html": "/almacenvaldez/index.html",
+    "main.83698418.css.map": "/almacenvaldez/static/css/main.83698418.css.map",
+    "main.2febc161.js.map": "/almacenvaldez/static/js/main.2febc161.js.map",
+    "787.9ecf5f4c.chunk.js.map": "/almacenvaldez/static/js/787.9ecf5f4c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.83698418.css",
+    "static/js/main.2febc161.js"
+  ]
+}
