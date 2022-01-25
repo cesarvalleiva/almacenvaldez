@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import VolverAlHome from '../../components/VolverAlHome/VolverAlHome';
 import { Context } from '../../store/appContext';
 import './Producto.css'
 
