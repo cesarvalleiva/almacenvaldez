@@ -68,10 +68,6 @@ const Home = () => {
         }
     ]
 
-    const irAlCarrito = () => {
-        navigate('/carrito')
-    }
-
     const agregarAlCarrito = (producto) => {
         Swal.fire({
             position: 'center',
