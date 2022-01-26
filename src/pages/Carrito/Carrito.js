@@ -173,7 +173,7 @@ const Carrito = () => {
                     </div>
                     <div className="modal-body qrmercadopago">
                         <img src={require(`../../assets/img/qrmercadopago.png`)} alt="qr mercadopago" />
-                        <h2>$ 2660</h2>
+                        <h2>$ {calcularTotalCarritoMercadopago()}</h2>
                     </div>
                     <div className="modal-footer">
                         <div className="w-100 d-grid gap-2">
