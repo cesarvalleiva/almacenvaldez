@@ -164,7 +164,7 @@ const Home = () => {
                                     ''
                             ))
                         :
-                         <p>No hay productos</p>
+                        <p>No hay productos</p>
                         }
                     </div>
                 </div>

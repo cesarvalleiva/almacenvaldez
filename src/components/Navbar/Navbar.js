@@ -15,7 +15,7 @@ const Navbar = () => {
 
     return ( 
         <div className='contenedorNavbar'>
-            <div className='menu'>
+            <div className='menu shadow'>
                 <div className='contenedorIconoMenuLogo'>
                     <i className="fas fa-bars"></i>
                     <Link to="/home"><img src={require('../../assets/img/logoalmacenblanco.png')} alt="Logo Almacen Valdez"/></Link>
