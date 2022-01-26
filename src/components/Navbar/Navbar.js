@@ -16,10 +16,15 @@ const Navbar = () => {
     return ( 
         <div className='contenedorNavbar'>
             <div className='menu'>
-                <Link to="/home"><img src={require('../../assets/img/logoalmacen.png')} alt="Logo Almacen Valdez"/></Link>
+                <div>
+                    <i className="fas fa-bars ms-2 me-2"></i>
+                    <Link to="/home"><img src={require('../../assets/img/logoalmacen.png')} alt="Logo Almacen Valdez"/></Link>
+                </div>
                 <div className='cerrarSesion'>
-                    {carrito.length === 0 ? '' : carrito.length}
-                    <Link to="/carrito"><i className="fas fa-shopping-cart violetaFondo"></i></Link>
+                    <div className='d-flex'>
+                        {carrito.length === 0 ? '' : <p className='cantidadCarrito'>{carrito.length}</p>}
+                        <Link to="/carrito"><i className="fas fa-shopping-cart violetaFondo"></i></Link>
+                    </div>
                     <i className="fas fa-power-off" onClick={() => cerrarSesion()}></i>
                 </div>
             </div>

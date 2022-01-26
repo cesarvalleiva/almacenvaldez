@@ -1,0 +1,77 @@
+.contenedorProductosCarrito {
+  width: 100%;
+  height: 100%;
+}
+
+.contenedorProductoCarrito {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.textoCarritoVacio {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
+
+.contenedorImagenCarrito {
+  width: 30%;
+}
+
+.contenedorImagenCarrito img {
+  width: 90%;
+}
+
+.productoCarrito {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.productoCarrito p {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-weight: bold;
+}
+
+.tituloCarrito {
+  width: 100%;
+}
+
+.contenedorUnidadesPrecioTotal {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cantidadEnCarrito,
+.precioUnitarioCarrito,
+.precioTotalProductoCarrito {
+  width: 30%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.precioTotalProductoCarrito {
+  font-weight: bold;
+}
+
+.eliminarDelCarrito {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eliminarDelCarrito i {
+  color: red;
+}

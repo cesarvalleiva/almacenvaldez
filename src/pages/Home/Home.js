@@ -76,7 +76,32 @@ const Home = () => {
             showConfirmButton: false,
             timer: 1500
         })
-        setCarrito([producto, ...carrito])
+
+        
+
+
+        if(carrito !== null) {
+        let cont = 0
+        let pos = 0
+            carrito.forEach((prod, indice) => {
+                if(prod.id === producto.id) {
+                    cont =+ 1;
+                    pos = indice;
+                }
+            })
+            if(cont > 0) {
+                carrito[pos].cantidad = carrito[pos].cantidad+=1;
+                setCarrito([...carrito])
+            } else {
+                producto.cantidad = 1;
+                setCarrito([producto, ...carrito])
+            } 
+        } else {
+            producto.cantidad = 1;
+            setCarrito([producto, ...carrito])
+        }
+
+        // setCarrito([producto, ...carrito])
     }
 
     useEffect(() => {

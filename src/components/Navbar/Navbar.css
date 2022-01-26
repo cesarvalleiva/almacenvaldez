@@ -25,7 +25,7 @@
 }
 
 .cerrarSesion {
-  width: 60px;
+  width: 70px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -34,5 +34,20 @@
 }
 
 .violetaFondo {
-  color: rgb(110, 53, 154)
+  color: rgb(110, 53, 154);
+  margin-left: 10px;
+}
+
+.cantidadCarrito {
+  width: 20px !important;
+  height: 20px !important;
+  position: absolute;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  top: 20px;
+  margin: 0;
+  border-radius: 50%;
+  background-color: red;
+  padding: 0 !important;
 }
