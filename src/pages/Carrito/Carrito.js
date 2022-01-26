@@ -9,7 +9,6 @@ const Carrito = () => {
     const navigate = useNavigate();
 
     const eliminarDelCarrito = id => {
-        
         Swal.fire({
             title: 'Deseas eliminarlo?',
             icon: 'warning',
@@ -33,7 +32,6 @@ const Carrito = () => {
     }
 
     const vaciarCarrito = () => {
-        
         Swal.fire({
             title: 'Deseas vaciar el carrito?',
             text: "Se perderán todos los productos",
@@ -51,8 +49,9 @@ const Carrito = () => {
                 icon: 'success',
                 title: 'Carrito eliminado',
                 showConfirmButton: false,
-                timer: 1500
-            })
+                timer: 1000
+              })
+              navigate('/home')
             }
           })
     }

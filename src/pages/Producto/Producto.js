@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../../store/appContext';
 import { motion } from 'framer-motion';
@@ -6,6 +6,19 @@ import './Producto.css'
 
 const Producto = () => {
     const {altura} = useContext(Context);
+    const [talle, setTalle] = useState('')
+    const [color, setColor] = useState('Seleccionar')
+
+    const cambiarTalle = (e) => {
+        setColor('Seleccionar')
+        setTalle(e.target.value)
+    }
+
+    useEffect(()=>{
+        console.log(color);
+        console.log(talle);
+    }, [color, talle])
+
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit = {{ opacity: 0}}>
             <div className='containerProducto' style={{height: `${altura}px`}}>
@@ -21,22 +34,22 @@ const Producto = () => {
                             <div className='contenedorTallesDetalleProducto'>
                                 <div className='contenedorColor'>
                                     <p>Color: </p>
-                                    <select className="w-75 form-select" aria-label="Default select example">
-                                        <option defaultValue>Elegir color</option>
-                                        <option value="1">Negra</option>
-                                        <option value="2">Blanca</option>
+                                    <select className="w-75 form-select" aria-label="Default select example" defaultValue={color} onChange={(event) => setColor(event.target.value)}>
+                                        <option defaultValue>{color}</option>
+                                        <option value="Negra">Negra</option>
+                                        <option value="Blanca">Blanca</option>
                                     </select>
                                 </div>
                                 <div className='contenedorTalle'>
                                     <p>Talle: </p>
-                                    <select className="w-75 form-select" aria-label="Default select example">
+                                    <select className="w-75 form-select" aria-label="Default select example" onChange={(e) => cambiarTalle(e)}>
                                         <option defaultValue>Elegir talle</option>
-                                        <option value="1">S</option>
-                                        <option value="2">M</option>
-                                        <option value="1">L</option>
-                                        <option value="1">XL</option>
-                                        <option value="1">XXL</option>
-                                        <option value="1">XXXL</option>
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                        <option value="XXL">XXL</option>
+                                        <option value="XXXL">XXXL</option>
                                     </select>
                                 </div>
                                 <div className="d-grid gap-2 mt-3">

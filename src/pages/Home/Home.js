@@ -16,6 +16,16 @@ const Home = () => {
             precio: 1600,
             imagen: "remeraluna",
             tallecolor: true,
+            talles: [
+                {
+                    s: 10,
+                    m: 15,
+                    l: 5,
+                    xl: 4,
+                    xxl: 0,
+                    xxxl: 0
+                }
+            ],
             stock: 20
         },
         {
@@ -24,6 +34,16 @@ const Home = () => {
             precio: 1600,
             imagen: "remeralunanegra",
             tallecolor: true,
+            talles: [
+                {
+                    s: 7,
+                    m: 10,
+                    l: 9,
+                    xl: 4,
+                    xxl: 0,
+                    xxxl: 10
+                }
+            ],
             stock: 20
         },
         {
@@ -140,14 +160,16 @@ const Home = () => {
                                                                 <div className='talle'>XXL</div>
                                                                 <div className='talle'>XXXL</div>
                                                             </div>
-                                                            <div className='contenedorTalles'>
-                                                                <div className='cantidad'>3</div>
-                                                                <div className='cantidad'>10</div>
-                                                                <div className='cantidad'>0</div>
-                                                                <div className='cantidad'>20</div>
-                                                                <div className='cantidad'>14</div>
-                                                                <div className='cantidad'>7</div>
-                                                            </div>
+                                                            {producto.talles.map(talle => (
+                                                                <div className='contenedorTalles' key={talle.s}>
+                                                                    <div className='cantidad'>{talle.s}</div>
+                                                                    <div className='cantidad'>{talle.m}</div>
+                                                                    <div className='cantidad'>{talle.l}</div>
+                                                                    <div className='cantidad'>{talle.xl}</div>
+                                                                    <div className='cantidad'>{talle.xxl}</div>
+                                                                    <div className='cantidad'>{talle.xxxl}</div>
+                                                                </div>
+                                                            ))}
                                                         </>
                                                     :
                                                         <div className='p-2'>
