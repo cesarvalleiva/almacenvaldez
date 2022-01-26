@@ -66,8 +66,8 @@ const Carrito = () => {
     return ( 
         <div className='containerProducto' style={{height: `${altura}px`}}>
             <div className='contenedorProducto'>
-                {carrito.length > 0 ? <h3 className='w-100 text-center mb-4 mt-3'>Carrito</h3> : ''}
-                {carrito.length > 0 ? <button className='btn btn-danger' onClick={() => vaciarCarrito()}>vaciar carrito</button> : ''}
+                {carrito.length > 0 ? <h3 className='mb-4 mt-3'>Carrito</h3> : ''}
+                {/* {carrito.length > 0 ? <button className='btn btn-danger' onClick={() => vaciarCarrito()}>vaciar carrito</button> : ''} */}
                 {carrito.length > 0 ?
                     <div className='contenedorProductosCarrito'>
                         {carrito.map(producto => (
