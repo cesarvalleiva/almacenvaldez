@@ -10,13 +10,16 @@ const Producto = () => {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit = {{ opacity: 0}}>
             <div className='containerProducto' style={{height: `${altura}px`}}>
                 <div className='contenedorProducto'>
-                    <Link to="/home">Volver</Link>
+                    <Link to="/home" className='volverAlHome'><i className="fas fa-arrow-left"></i> Volver</Link>
                     <div className="card cardProducto">
-                        <img src={require('../../assets/img/remeraluna.png')} className="card-img-top" alt="remera luna" />
+                        <img src={require('../../assets/img/remeralunanegra.png')} className="card-img-top" alt="remera luna" />
                         <div className="card-body cuerpoDetalleProducto">
-                            <h5 className="card-title d-flex justify-content-between mb-3">Remera Luna <p>$ 1600</p></h5>
+                            <h5 className="card-title tituloProducto">
+                                Remera Luna
+                                <p>$ 1600</p>
+                            </h5>
                             <div className='contenedorTallesDetalleProducto'>
-                                <div className='w-100 d-flex justify-content-between align-items-center'>
+                                <div className='contenedorColor'>
                                     <p>Color: </p>
                                     <select className="w-75 form-select" aria-label="Default select example">
                                         <option defaultValue>Elegir color</option>
@@ -24,7 +27,7 @@ const Producto = () => {
                                         <option value="2">Blanca</option>
                                     </select>
                                 </div>
-                                <div className='w-100 d-flex mt-3 justify-content-between align-items-center'>
+                                <div className='contenedorTalle'>
                                     <p>Talle: </p>
                                     <select className="w-75 form-select" aria-label="Default select example">
                                         <option defaultValue>Elegir talle</option>

@@ -1,6 +1,8 @@
 .contenedorHome {
   width: 100vw;
-  background-color: rgb(110, 53, 154);
+  /* background-color: rgb(110, 53, 154); */
+  /* background-color: #1a1c20; */
+  background-color: #f4f4f4;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -8,9 +10,11 @@
 }
 
 .secciones {
-  width: 95%;
+  width: 100%;
   height: calc(100% - 90px);
-  background-color: #fff;
+  /* background-color: #fff; */
+  /* background-color: rgb(110, 53, 154); */
+  /* border: 1px solid rgb(110, 53, 154); */
   margin-top: 10px;
   border-radius: 10px;
   padding: 10px;
@@ -26,6 +30,7 @@
   margin-bottom: 10px;
   padding: 1px;
   border: 1px solid rgb(110, 53, 154) !important;
+  /* border: 1px solid #f0a500 !important; */
 }
 
 .accordion-button:focus {
@@ -56,11 +61,13 @@
   width: 220px;
   font-weight: 700;
   color: rgb(110, 53, 154) !important;
+  /* color: #f0a500 !important; */
 }
 
 .precioProducto {
   font-weight: 700;
   color: rgb(110, 53, 154) !important;
+  /* color: #f0a500 !important; */
 }
 
 .contenedorTituloProducto h2 p {
@@ -88,9 +95,10 @@
 
 .talle {
   width: 14%;
-  /* border: 1px solid rgb(110, 53, 154) !important; */
-  background-color: rgb(188, 160, 238);
-  color: #fff;
+  /* background-color: rgb(188, 160, 238); */
+  border: 1px solid rgb(110, 53, 154);
+  /* color: #fff; */
+  color: rgb(110, 53, 154);
   border-radius: 2px;
   text-align: center;
 }
