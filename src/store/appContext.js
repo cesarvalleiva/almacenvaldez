@@ -6,6 +6,7 @@ const AppProvider = ({children}) => {
     const [usuario, setUsuario] = useState(localStorage.getItem('usuario') === null ? false : true);
     const [carrito, setCarrito] = useState(JSON.parse(localStorage.getItem('carrito')) !== null ? JSON.parse(localStorage.getItem('carrito')) : [])
 
+    console.log(usuario);
     return (
         <Context.Provider value={{ altura, usuario, setUsuario, carrito, setCarrito }}>
             {children}

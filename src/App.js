@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import { Context } from './store/appContext';
 import Login from './pages/Login';
 import Home from './pages/Home';
-// import Pedidos from './pages/Pedidos/Pedidos';
 import Navbar from './components/Navbar/Navbar';
 import Producto from './pages/Producto';
 import './App.css';
