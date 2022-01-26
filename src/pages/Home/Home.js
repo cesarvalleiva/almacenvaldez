@@ -77,9 +77,6 @@ const Home = () => {
             timer: 1500
         })
 
-        
-
-
         if(carrito !== null) {
         let cont = 0
         let pos = 0
@@ -100,8 +97,6 @@ const Home = () => {
             producto.cantidad = 1;
             setCarrito([producto, ...carrito])
         }
-
-        // setCarrito([producto, ...carrito])
     }
 
     useEffect(() => {
