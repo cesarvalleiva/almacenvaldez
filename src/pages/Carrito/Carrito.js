@@ -28,7 +28,7 @@ const Carrito = () => {
                 timer: 1500
             })
             }
-          })
+        })
     }
 
     const vaciarCarrito = () => {
@@ -56,8 +56,40 @@ const Carrito = () => {
           })
     }
 
-    const  calcularTotal = (precio, cantidad) => {
+    const calcularTotal = (precio, cantidad) => {
         return precio*cantidad
+    }
+
+    const confirmacionPedido = () => {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Pedido confirmado',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+
+    const pedidoEnEfectivo = () => {
+        Swal.fire({
+            title: 'Confirmar pedido?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Producto confirmado',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            }
+        })
     }
 
     useEffect(() => {
@@ -72,29 +104,57 @@ const Carrito = () => {
                 {/* {carrito.length > 0 ? <button className='btn btn-danger' onClick={() => vaciarCarrito()}>vaciar carrito</button> : ''} */}
                 {carrito.length > 0 ?
                     <div className='contenedorProductosCarrito'>
-                        {carrito.map(producto => (
-                            <div key={producto.id} className='contenedorProductoCarrito shadow'>
-                                <div className='contenedorImagenCarrito'>
-                                    <img src={require(`../../assets/img/${producto.imagen}.png`)} alt={producto.nombre} />
-                                </div>
-                                <div className='productoCarrito'>
-                                    <p className='tituloProductoCarrito'>{producto.nombre}</p>
-                                    <div className='contenedorUnidadesPrecioTotal'>
-                                        <div className='cantidadEnCarrito'><p>Cant.</p>{producto.cantidad} unid.</div>
-                                        <div className='precioUnitarioCarrito'><p>Unitario</p>$ {producto.precio}</div>
-                                        <div className='precioTotalProductoCarrito'><p>Total</p>$ {calcularTotal(producto.precio, producto.cantidad)}</div>
-                                        <div className='eliminarDelCarrito'>
-                                            <i className="fas fa-trash-alt" onClick={() => eliminarDelCarrito(producto.id)}></i>
+                        <div>
+                            {carrito.map(producto => (
+                                <div key={producto.id} className='contenedorProductoCarrito shadow'>
+                                    <div className='contenedorImagenCarrito'>
+                                        <img src={require(`../../assets/img/${producto.imagen}.png`)} alt={producto.nombre} />
+                                    </div>
+                                    <div className='productoCarrito'>
+                                        <p className='tituloProductoCarrito'>{producto.nombre}</p>
+                                        <div className='contenedorUnidadesPrecioTotal'>
+                                            <div className='cantidadEnCarrito'><p>Cant.</p>{producto.cantidad} unid.</div>
+                                            <div className='precioUnitarioCarrito'><p>Unitario</p>$ {producto.precio}</div>
+                                            <div className='precioTotalProductoCarrito'><p>Total</p>$ {calcularTotal(producto.precio, producto.cantidad)}</div>
+                                            <div className='eliminarDelCarrito'>
+                                                <i className="fas fa-trash-alt" onClick={() => eliminarDelCarrito(producto.id)}></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                            </div>
-                        ))}
+                            ))}
+                        </div>
+                        <div className='contenedorBotonesPago'>
+                            <button className='btn btn-pago btn-mercadopago' type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img src={require(`../../assets/img/mercadopago.png`)} alt="Mercado pago" />
+                                <p>$ 2660</p>
+                            </button>
+                            <button className='btn btn-pago btn-efectivo' onClick={() => pedidoEnEfectivo()}>Efectivo: $ 2400</button>
+                        </div>
                     </div>
                 :
                     <p className="textoCarritoVacio nombreProducto">No hay productos</p>
                 }
+            </div>
+
+            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalLabel">Abonar con mercadopago</h5>
+                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body qrmercadopago">
+                        <img src={require(`../../assets/img/qrmercadopago.png`)} alt="qr mercadopago" />
+                        <h2>$ 2660</h2>
+                    </div>
+                    <div className="modal-footer">
+                        <div className="w-100 d-grid gap-2">
+                            <button className="btn btn-success" type="button" data-bs-dismiss="modal" onClick={() => confirmacionPedido()}>Pedido confimado</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </div>
         </div>
      );
