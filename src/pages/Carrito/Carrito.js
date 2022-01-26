@@ -1,4 +1,5 @@
 import { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Context } from '../../store/appContext';
 import './Carrito.css'
@@ -66,6 +67,7 @@ const Carrito = () => {
     return ( 
         <div className='containerProducto' style={{height: `${altura}px`}}>
             <div className='contenedorProducto'>
+                <Link to="/home" className='volverAlHome'><i className="fas fa-arrow-left"></i> Volver</Link>
                 {carrito.length > 0 ? <h3 className='mb-4 mt-3'>Carrito</h3> : ''}
                 {/* {carrito.length > 0 ? <button className='btn btn-danger' onClick={() => vaciarCarrito()}>vaciar carrito</button> : ''} */}
                 {carrito.length > 0 ?
@@ -76,16 +78,17 @@ const Carrito = () => {
                                     <img src={require(`../../assets/img/${producto.imagen}.png`)} alt={producto.nombre} />
                                 </div>
                                 <div className='productoCarrito'>
-                                    <p>{producto.nombre}</p>
+                                    <p className='tituloProductoCarrito'>{producto.nombre}</p>
                                     <div className='contenedorUnidadesPrecioTotal'>
-                                        <div className='cantidadEnCarrito'>{producto.cantidad} unid.</div>
-                                        <div className='precioUnitarioCarrito'>$ {producto.precio}</div>
-                                        <div className='precioTotalProductoCarrito'>$ {calcularTotal(producto.precio, producto.cantidad)}</div>
+                                        <div className='cantidadEnCarrito'><p>Cant.</p>{producto.cantidad} unid.</div>
+                                        <div className='precioUnitarioCarrito'><p>Unitario</p>$ {producto.precio}</div>
+                                        <div className='precioTotalProductoCarrito'><p>Total</p>$ {calcularTotal(producto.precio, producto.cantidad)}</div>
+                                        <div className='eliminarDelCarrito'>
+                                            <i className="fas fa-trash-alt" onClick={() => eliminarDelCarrito(producto.id)}></i>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className='eliminarDelCarrito'>
-                                    <i className="fas fa-trash-alt" onClick={() => eliminarDelCarrito(producto.id)}></i>
-                                </div>
+                                
                             </div>
                         ))}
                     </div>

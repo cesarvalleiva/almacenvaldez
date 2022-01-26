@@ -7,6 +7,8 @@
   width: 100%;
   display: flex;
   margin-bottom: 10px;
+  padding: 7px 0 7px 7px;
+  /* border-radius: 5px; */
 }
 
 .textoCarritoVacio {
@@ -19,7 +21,7 @@
 }
 
 .contenedorImagenCarrito {
-  width: 30%;
+  width: 25%;
 }
 
 .contenedorImagenCarrito img {
@@ -27,7 +29,7 @@
 }
 
 .productoCarrito {
-  width: 60%;
+  width: 75%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,13 +43,13 @@
   font-weight: bold;
 }
 
-.tituloCarrito {
-  width: 100%;
+.tituloProductoCarrito {
+  color: rgb(110, 53, 154);
 }
 
 .contenedorUnidadesPrecioTotal {
   width: 100%;
-  height: 50%;
+  height: 60%;
   display: flex;
   justify-content: space-between;
 }
@@ -55,10 +57,21 @@
 .cantidadEnCarrito,
 .precioUnitarioCarrito,
 .precioTotalProductoCarrito {
-  width: 30%;
+  width: 25%;
+  height: 40px;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: flex-start;
+}
+
+.cantidadEnCarrito p,
+.precioUnitarioCarrito p,
+.precioTotalProductoCarrito p {
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0 auto;
+  font-weight: bold;
 }
 
 .precioTotalProductoCarrito {
@@ -70,8 +83,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 5px;
 }
 
 .eliminarDelCarrito i {
-  color: red;
+  color: rgb(238, 13, 13);
 }

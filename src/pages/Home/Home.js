@@ -128,7 +128,7 @@ const Home = () => {
                                         </h2>
                                         <div id={producto.imagen} className="accordion-collapse collapse" aria-labelledby={producto} data-bs-parent="#accordionExample">
                                             <div className="accordion-body">
-                                                <div className='w-100'>
+                                                <div className='contenedorStockProdSinTalleColor'>
                                                     {producto.tallecolor ?
                                                         <>
                                                             <div className='contenedorTalles'>
@@ -154,7 +154,7 @@ const Home = () => {
                                                         </div>
                                                     }
                                                 </div>
-                                                <div className="d-grid gap-2 mt-3">
+                                                <div className="d-grid gap-2">
                                                     <button className="btn btn-success btn-agregar" data-bs-toggle="collapse" data-bs-target={`#${producto.imagen}`} onClick={() => producto.tallecolor ? navigate(`/${producto.id}`) : agregarAlCarrito({...producto})} type="button">{producto.tallecolor ? 'Ver producto' : 'Agregar'}</button>
                                                 </div>
                                             </div>
