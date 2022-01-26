@@ -111,6 +111,7 @@ const Home = () => {
             <div className='contenedorHome' style={{height: `${altura}px`}}>
                 <div className='secciones'>
                     <div className="accordion w-100" id="accordionExample">
+                        <h3 className='w-100 text-center mt-2 mb-3'>Productos</h3>
                         {productos.length > 0 ? 
                             productos.map(producto => (
                                 producto.stock > 0 ?

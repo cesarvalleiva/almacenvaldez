@@ -1,11 +1,12 @@
 import { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Context } from '../../store/appContext';
 import './Carrito.css'
 
 const Carrito = () => {
     const {altura, carrito, setCarrito} = useContext(Context);
+    const navigate = useNavigate();
 
     const eliminarDelCarrito = id => {
         
@@ -60,7 +61,7 @@ const Carrito = () => {
         return precio*cantidad
     }
 
-    const confirmacionPedido = () => {
+    const confirmacionPedidoMercadopago = () => {
         Swal.fire({
             position: 'center',
             icon: 'success',
@@ -68,9 +69,11 @@ const Carrito = () => {
             showConfirmButton: false,
             timer: 1500
         })
+        setCarrito([])
+        navigate('/home')
     }
 
-    const pedidoEnEfectivo = () => {
+    const confirmacionPedidoEnEfectivo = () => {
         Swal.fire({
             title: 'Confirmar pedido?',
             icon: 'question',
@@ -87,9 +90,29 @@ const Carrito = () => {
                 title: 'Producto confirmado',
                 showConfirmButton: false,
                 timer: 1500
-            })
+              })
+              setCarrito([])
+              navigate('/home')
             }
         })
+    }
+
+    const calcularTotalCarritoEfectivo = () => {
+        let total = 0;
+        carrito.map(prod => (
+            total += prod.precio*prod.cantidad
+        ))
+
+        return total.toFixed(0);
+    }
+
+    const calcularTotalCarritoMercadopago = () => {
+        let total = 0;
+        carrito.map(prod => (
+            total += prod.precio*prod.cantidad
+        ))
+
+        return (total*1.10).toFixed(0);
     }
 
     useEffect(() => {
@@ -100,8 +123,12 @@ const Carrito = () => {
         <div className='containerProducto' style={{height: `${altura}px`}}>
             <div className='contenedorProducto'>
                 <Link to="/home" className='volverAlHome'><i className="fas fa-arrow-left"></i> Volver</Link>
-                {carrito.length > 0 ? <h3 className='mb-4 mt-3'>Carrito</h3> : ''}
-                {/* {carrito.length > 0 ? <button className='btn btn-danger' onClick={() => vaciarCarrito()}>vaciar carrito</button> : ''} */}
+                {carrito.length > 0 ? 
+                    <div className='w-100 d-flex justify-content-between align-items-center'>
+                        <h3 className='mb-4 mt-3'>Carrito</h3>
+                        <button className='btn btn-danger btn-sm btn-vaciarCarrito' onClick={() => vaciarCarrito()}>Vaciar carrito</button>
+                    </div>
+                : ''}
                 {carrito.length > 0 ?
                     <div className='contenedorProductosCarrito'>
                         <div>
@@ -127,9 +154,9 @@ const Carrito = () => {
                         <div className='contenedorBotonesPago'>
                             <button className='btn btn-pago btn-mercadopago' type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <img src={require(`../../assets/img/mercadopago.png`)} alt="Mercado pago" />
-                                <p>$ 2660</p>
+                                <p>$ {calcularTotalCarritoMercadopago()}</p>
                             </button>
-                            <button className='btn btn-pago btn-efectivo' onClick={() => pedidoEnEfectivo()}>Efectivo: $ 2400</button>
+                            <button className='btn btn-pago btn-efectivo' onClick={() => confirmacionPedidoEnEfectivo()}>Efectivo: $ {calcularTotalCarritoEfectivo()}</button>
                         </div>
                     </div>
                 :
@@ -150,7 +177,7 @@ const Carrito = () => {
                     </div>
                     <div className="modal-footer">
                         <div className="w-100 d-grid gap-2">
-                            <button className="btn btn-success" type="button" data-bs-dismiss="modal" onClick={() => confirmacionPedido()}>Pedido confimado</button>
+                            <button className="btn btn-success" type="button" data-bs-dismiss="modal" onClick={() => confirmacionPedidoMercadopago()}>Pedido confimado</button>
                         </div>
                     </div>
                     </div>

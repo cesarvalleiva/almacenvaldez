@@ -81,6 +81,10 @@
   font-weight: bold;
 }
 
+.btn-vaciarCarrito:focus {
+  box-shadow: none !important;
+}
+
 .eliminarDelCarrito {
   width: 10%;
   display: flex;
