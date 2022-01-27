@@ -137,7 +137,7 @@ const Carrito = () => {
                                 <SwipeableList key={producto.id}>
                                     <SwipeableListItem
                                         swipeLeft={{
-                                        content: <div>
+                                        content: <div className='eliminarDelCarrito'>
                                             <i className="fas fa-trash-alt"></i>
                                         </div>,
                                         action: () => eliminarDelCarrito(producto.id)

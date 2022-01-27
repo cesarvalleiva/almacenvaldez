@@ -85,14 +85,6 @@
   box-shadow: none !important;
 }
 
-.eliminarDelCarrito {
-  width: 10%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 5px;
-}
-
 .eliminarDelCarrito i {
   color: rgb(238, 13, 13);
 }
@@ -105,6 +97,8 @@
 
 .btn-pago {
   width: 49%;
+  font-size: 18px !important;
+  font-weight: bold !important;
 }
 
 .btn-pago:focus {
@@ -121,7 +115,7 @@
 }
 
 .btn-mercadopago img {
-  width: 30px;
+  width: 35px;
   margin-right: 10px;
 }
 
