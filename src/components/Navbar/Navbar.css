@@ -48,6 +48,10 @@
   font-size: 20px;
 }
 
+.cerrarSesion a {
+  text-decoration: none !important;
+}
+
 .violetaFondo {
   /* color: rgb(110, 53, 154); */
   color: #f4f4f4;

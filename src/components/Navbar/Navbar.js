@@ -21,10 +21,12 @@ const Navbar = () => {
                     <Link to="/home"><img src={require('../../assets/img/logoalmacenblanco.png')} alt="Logo Almacen Valdez"/></Link>
                 </div>
                 <div className='cerrarSesion'>
-                    <div className='d-flex'>
-                        {carrito.length === 0 ? '' : <p className='cantidadCarrito'>{carrito.length}</p>}
-                        <Link to="/carrito"><i className="fas fa-shopping-cart violetaFondo"></i></Link>
-                    </div>
+                    <Link to="/carrito">
+                        <div className='d-flex'>
+                            {carrito.length === 0 ? '' : <p className='cantidadCarrito'>{carrito.length}</p>}
+                            <i className="fas fa-shopping-cart violetaFondo"></i>
+                        </div>
+                    </Link>
                     {/* <i className="fas fa-power-off violetaFondo" onClick={() => cerrarSesion()}></i> */}
                 </div>
             </div>
