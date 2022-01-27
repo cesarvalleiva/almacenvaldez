@@ -2,13 +2,41 @@ import { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Context } from '../../store/appContext';
-import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
-import '@sandstreamdev/react-swipeable-list/dist/styles.css';
+// import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
+// import '@sandstreamdev/react-swipeable-list/dist/styles.css';
+import {
+    LeadingActions,
+    SwipeableList,
+    SwipeableListItem,
+    SwipeAction,
+    TrailingActions,
+  } from 'react-swipeable-list';
+  import 'react-swipeable-list/dist/styles.css';
 import './Carrito.css'
 
 const Carrito = () => {
     const {altura, carrito, setCarrito} = useContext(Context);
     const navigate = useNavigate();
+
+    const leadingActions = () => (
+        <LeadingActions>
+          <SwipeAction onClick={() => console.info('swipe action triggered')}>
+            Action name
+          </SwipeAction>
+        </LeadingActions>
+      );
+      
+      const trailingActions = (id) => (
+        <TrailingActions>
+          <SwipeAction
+            onClick={() => eliminarDelCarrito(id)}
+          >
+            <div className='eliminarDelCarrito'>
+                <i className="fas fa-trash-alt"></i>
+            </div>
+          </SwipeAction>
+        </TrailingActions>
+      );
 
     const eliminarDelCarrito = id => {
         Swal.fire({
@@ -134,15 +162,20 @@ const Carrito = () => {
                     <div className='contenedorProductosCarrito'>
                         <div>
                             {carrito.map(producto => (
+                                // <SwipeableList key={producto.id} type={"IOS"}>
+                                //     <SwipeableListItem
+                                //         swipeLeft={{
+                                //         content: <div className='eliminarDelCarrito'>
+                                //             <i className="fas fa-trash-alt"></i>
+                                //         </div>,
+                                //         action: () => eliminarDelCarrito(producto.id)
+                                //         }}
+                                //     >
                                 <SwipeableList key={producto.id}>
                                     <SwipeableListItem
-                                        swipeLeft={{
-                                        content: <div className='eliminarDelCarrito'>
-                                            <i className="fas fa-trash-alt"></i>
-                                        </div>,
-                                        action: () => eliminarDelCarrito(producto.id)
-                                        }}
-                                    >
+                                        leadingActions={leadingActions()}
+                                        trailingActions={trailingActions(producto.id)}
+                                     >
                                         <div className='contenedorProductoCarrito shadow'>
                                             <div className='contenedorImagenCarrito'>
                                                 <img src={require(`../../assets/img/${producto.imagen}.png`)} alt={producto.nombre} />
@@ -156,7 +189,7 @@ const Carrito = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </SwipeableListItem>
+                                  </SwipeableListItem>
                                 </SwipeableList>
                             ))}
                         </div>
