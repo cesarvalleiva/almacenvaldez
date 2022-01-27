@@ -4,7 +4,7 @@ import { Context } from '../../store/appContext';
 import './Sidebar.css'
 
 const Sidebar = () => {
-    const {menu, handleMenu, setUsuario} = useContext(Context);
+    const {menu, handleMenu, setUsuario, altura} = useContext(Context);
     let navigate = useNavigate()
 
      const cerrarSesion = () => {
@@ -15,7 +15,7 @@ const Sidebar = () => {
 
     return (
         <>
-            <div className={`sidebar ${menu ? "openSidebar" : ""}`} onClick={handleMenu}>
+            <div className={`sidebar ${menu ? "openSidebar" : ""}`} onClick={handleMenu} style={{height: `${altura}px`}}>
                 <h2>Menu</h2>
                 <div className='contenedorOpcionesSidebar'>
                     <ul>
