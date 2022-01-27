@@ -19,8 +19,10 @@ const Sidebar = () => {
                 <h2>Menu</h2>
                 <div className='contenedorOpcionesSidebar'>
                     <ul>
-                        <li>Ventas</li>
-                        <li>Liquidar</li>
+                        <Link to="/home"><li><i className="fas fa-store"></i>Productos</li></Link>
+                        <li><i className="fas fa-tags"></i>Ventas</li>
+                        <Link to="/carrito"><li><i className="fas fa-shopping-cart"></i>Carrito</li></Link>
+                        <li><i className="fas fa-dollar-sign"></i>Liquidar</li>
                     </ul>
                     <div className='cerrarSesion' onClick={() => cerrarSesion()}>
                         <i className="fas fa-power-off"></i><p>Cerrar sesión</p>
