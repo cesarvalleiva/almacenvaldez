@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../../store/appContext';
 import { motion } from 'framer-motion';
@@ -14,11 +14,6 @@ const Producto = () => {
         setTalle(e.target.value)
     }
 
-    useEffect(()=>{
-        console.log(color);
-        console.log(talle);
-    }, [color, talle])
-
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit = {{ opacity: 0}}>
             <div className='containerProducto' style={{height: `${altura}px`}}>
@@ -32,14 +27,6 @@ const Producto = () => {
                                 <p>$ 1600</p>
                             </h5>
                             <div className='contenedorTallesDetalleProducto'>
-                                <div className='contenedorColor'>
-                                    <p>Color: </p>
-                                    <select className="w-75 form-select" aria-label="Default select example" defaultValue={color} onChange={(event) => setColor(event.target.value)}>
-                                        <option defaultValue>{color}</option>
-                                        <option value="Negra">Negra</option>
-                                        <option value="Blanca">Blanca</option>
-                                    </select>
-                                </div>
                                 <div className='contenedorTalle'>
                                     <p>Talle: </p>
                                     <select className="w-75 form-select" aria-label="Default select example" onChange={(e) => cambiarTalle(e)}>
