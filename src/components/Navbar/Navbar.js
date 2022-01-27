@@ -1,17 +1,17 @@
 import { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Context } from '../../store/appContext';
 import './Navbar.css'
 
 const Navbar = () => {
-    let navigate = useNavigate()
-    const {setUsuario, carrito} = useContext(Context)
+    // let navigate = useNavigate()
+    const {carrito} = useContext(Context)
 
-    const cerrarSesion = () => {
-        localStorage.removeItem('usuario')
-        setUsuario(false)
-        navigate('/');
-    }
+    // const cerrarSesion = () => {
+    //     localStorage.removeItem('usuario')
+    //     setUsuario(false)
+    //     navigate('/');
+    // }
 
     return ( 
         <div className='contenedorNavbar'>

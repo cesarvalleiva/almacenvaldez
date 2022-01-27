@@ -12,6 +12,8 @@ const Producto = () => {
     const cambiarTalle = (e) => {
         setColor('Seleccionar')
         setTalle(e.target.value)
+        console.log(talle);
+        console.log(color);
     }
 
     return (

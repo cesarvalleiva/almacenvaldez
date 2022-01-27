@@ -191,7 +191,7 @@
 
 #delete-container {
   height: 91px;
-  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: flex-start !important;
   padding: 0 !important;

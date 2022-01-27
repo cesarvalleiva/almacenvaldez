@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../store/appContext';
 
@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import './Home.css'
 
 const Home = () => {
-    const {altura, carrito, agregarAlCarrito} = useContext(Context);
+    const {altura, agregarAlCarrito} = useContext(Context);
     let navigate = useNavigate()
 
     const productos = [
