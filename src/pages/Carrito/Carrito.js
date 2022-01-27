@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Context } from '../../store/appContext';
@@ -12,13 +12,13 @@ const Carrito = () => {
 
     const eliminarDelCarrito = id => {
         setCarrito(carrito.filter(prod => prod.id !== id))
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Producto eliminado',
-            showConfirmButton: false,
-            timer: 1500
-        })
+        // Swal.fire({
+        //     position: 'center',
+        //     icon: 'success',
+        //     title: 'Producto eliminado',
+        //     showConfirmButton: false,
+        //     timer: 1500
+        // })
     }
 
     const vaciarCarrito = () => {
@@ -104,7 +104,15 @@ const Carrito = () => {
         return (total*1.10).toFixed(0);
     }
 
-    const eliminar = <i className="fas fa-trash-alt"></i>
+    // const eliminar = <i className="fas fa-trash-alt"></i>
+
+    const Eliminar = () => {
+        return (
+            <>
+                <i className="fas fa-trash-alt"></i>
+            </>
+        )
+    }
 
     useEffect(() => {
         localStorage.setItem('carrito', JSON.stringify(carrito))
@@ -127,11 +135,12 @@ const Carrito = () => {
                                 <SwipeToDelete
                                     key={producto.id}
                                     onDelete={() => eliminarDelCarrito(producto.id)}
-                                    height={100}
+                                    height={105}
                                     transitionDuration={250}
                                     deleteWidth={75}
                                     deleteColor='rgba(252, 58, 48, 1.00)'
-                                    deleteComponent= {eliminar}
+                                    deleteText=""
+                                    deleteComponent={<Eliminar />}
                                 >
                                         <div className='contenedorProductoCarrito shadow'>
                                             <div className='contenedorImagenCarrito'>

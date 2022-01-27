@@ -1,12 +1,12 @@
-import { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../store/appContext';
-
+import Swal from 'sweetalert2'
 import { motion } from 'framer-motion';
 import './Home.css'
 
 const Home = () => {
-    const {altura, agregarAlCarrito} = useContext(Context);
+    const {altura, carrito, setCarrito} = useContext(Context);
     let navigate = useNavigate()
 
     const productos = [
@@ -87,11 +87,46 @@ const Home = () => {
             stock: 2
         }
     ]
+
+    const agregarAlCarrito = (producto) => {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Producto agregado',
+            showConfirmButton: false,
+            timer: 1500
+        })
+
+        if(carrito !== null) {
+        let cont = 0
+        let pos = 0
+            carrito.forEach((prod, indice) => {
+                if(prod.id === producto.id) {
+                    cont =+ 1;
+                    pos = indice;
+                }
+            })
+            if(cont > 0) {
+                carrito[pos].cantidad = carrito[pos].cantidad+=1;
+                setCarrito([...carrito])
+            } else {
+                producto.cantidad = 1;
+                setCarrito([producto, ...carrito])
+            } 
+        } else {
+            producto.cantidad = 1;
+            setCarrito([producto, ...carrito])
+        }
+    }
+
+    useEffect(() => {
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+    }, [carrito])
     
     return ( 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit = {{ opacity: 0}}>
             <div className='avisoDispositivosGrandes'>
-                <p>Por favor ingresá desde el celular 📱</p>
+                <p>Por favor ingresá desde el celular <span aria-label="celular" role="img">📱</span></p>
             </div>
             <div className='contenedorHome' style={{height: `${altura}px`}}>
                 <div className='secciones'>

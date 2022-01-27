@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import Swal from 'sweetalert2'
 
 export const Context = createContext(null)
@@ -6,6 +6,7 @@ const AppProvider = ({children}) => {
     const [altura,] = useState(window.innerHeight)
     const [usuario, setUsuario] = useState(localStorage.getItem('usuario') === null ? false : true);
     const [carrito, setCarrito] = useState(JSON.parse(localStorage.getItem('carrito')) !== null ? JSON.parse(localStorage.getItem('carrito')) : [])
+    const [menu, setMenu] = useState(false);
 
     const agregarAlCarrito = (producto) => {
         Swal.fire({
@@ -38,12 +39,16 @@ const AppProvider = ({children}) => {
         }
     }
 
+    const handleMenu = () => {
+        setMenu(!menu);
+    }
+
     useEffect(() => {
         localStorage.setItem('carrito', JSON.stringify(carrito))
     }, [carrito])
 
     return (
-        <Context.Provider value={{ altura, usuario, setUsuario, carrito, setCarrito, agregarAlCarrito }}>
+        <Context.Provider value={{ altura, usuario, setUsuario, carrito, setCarrito, agregarAlCarrito, menu, setMenu, handleMenu }}>
             {children}
         </Context.Provider>
     )
