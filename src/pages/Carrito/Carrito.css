@@ -85,8 +85,19 @@
   box-shadow: none !important;
 }
 
+.eliminarDelCarrito {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(238, 13, 13);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 20px;
+}
+
 .eliminarDelCarrito i {
-  color: rgb(238, 13, 13);
+  /* color: rgb(238, 13, 13); */
+  color: #fff !important;
 }
 
 .contenedorBotonesPago {
