@@ -2,6 +2,8 @@ import { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Context } from '../../store/appContext';
+import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
+import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import './Carrito.css'
 
 const Carrito = () => {
@@ -132,22 +134,30 @@ const Carrito = () => {
                     <div className='contenedorProductosCarrito'>
                         <div>
                             {carrito.map(producto => (
-                                <div key={producto.id} className='contenedorProductoCarrito shadow'>
-                                    <div className='contenedorImagenCarrito'>
-                                        <img src={require(`../../assets/img/${producto.imagen}.png`)} alt={producto.nombre} />
-                                    </div>
-                                    <div className='productoCarrito'>
-                                        <p className='tituloProductoCarrito'>{producto.nombre}</p>
-                                        <div className='contenedorUnidadesPrecioTotal'>
-                                            <div className='cantidadEnCarrito'><p>Cant.</p>{producto.cantidad} unid.</div>
-                                            <div className='precioUnitarioCarrito'><p>Unitario</p>$ {producto.precio}</div>
-                                            <div className='precioTotalProductoCarrito'><p>Total</p>$ {calcularTotal(producto.precio, producto.cantidad)}</div>
-                                            <div className='eliminarDelCarrito'>
-                                                <i className="fas fa-trash-alt" onClick={() => eliminarDelCarrito(producto.id)}></i>
+                                <SwipeableList key={producto.id}>
+                                    <SwipeableListItem
+                                        swipeLeft={{
+                                        content: <div>
+                                            <i className="fas fa-trash-alt"></i>
+                                        </div>,
+                                        action: () => eliminarDelCarrito(producto.id)
+                                        }}
+                                    >
+                                        <div className='contenedorProductoCarrito shadow'>
+                                            <div className='contenedorImagenCarrito'>
+                                                <img src={require(`../../assets/img/${producto.imagen}.png`)} alt={producto.nombre} />
+                                            </div>
+                                            <div className='productoCarrito'>
+                                                <p className='tituloProductoCarrito'>{producto.nombre}</p>
+                                                <div className='contenedorUnidadesPrecioTotal'>
+                                                    <div className='cantidadEnCarrito'><p>Cant.</p>{producto.cantidad} unid.</div>
+                                                    <div className='precioUnitarioCarrito'><p>Unitario</p>$ {producto.precio}</div>
+                                                    <div className='precioTotalProductoCarrito'><p>Total</p>$ {calcularTotal(producto.precio, producto.cantidad)}</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    </SwipeableListItem>
+                                </SwipeableList>
                             ))}
                         </div>
                         <div className='contenedorBotonesPago'>

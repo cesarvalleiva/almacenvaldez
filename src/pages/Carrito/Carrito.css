@@ -163,3 +163,8 @@
 .swal2-popup .swal2-styled:focus {
   box-shadow: none !important;
 }
+
+.swipeable-list {
+  width: 100% !important;
+  height: 105px !important;
+}
