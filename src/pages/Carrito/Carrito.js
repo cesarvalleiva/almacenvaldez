@@ -2,62 +2,22 @@ import { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Context } from '../../store/appContext';
-// import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
-// import '@sandstreamdev/react-swipeable-list/dist/styles.css';
-import {
-    LeadingActions,
-    SwipeableList,
-    SwipeableListItem,
-    SwipeAction,
-    TrailingActions,
-  } from 'react-swipeable-list';
-  import 'react-swipeable-list/dist/styles.css';
+import SwipeToDelete from 'react-swipe-to-delete-ios'
 import './Carrito.css'
 
 const Carrito = () => {
     const {altura, carrito, setCarrito} = useContext(Context);
     const navigate = useNavigate();
 
-    const leadingActions = () => (
-        <LeadingActions>
-          <SwipeAction onClick={() => console.info('swipe action triggered')}>
-            Action name
-          </SwipeAction>
-        </LeadingActions>
-      );
-      
-      const trailingActions = (id) => (
-        <TrailingActions>
-          <SwipeAction
-            onClick={() => eliminarDelCarrito(id)}
-          >
-            <div className='eliminarDelCarrito'>
-                <i className="fas fa-trash-alt"></i>
-            </div>
-          </SwipeAction>
-        </TrailingActions>
-      );
 
     const eliminarDelCarrito = id => {
+        setCarrito(carrito.filter(prod => prod.id !== id))
         Swal.fire({
-            title: 'Deseas eliminarlo?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Eliminar',
-            cancelButtonText: 'Cancelar'
-          }).then((result) => {
-            if (result.isConfirmed) {
-                setCarrito(carrito.filter(prod => prod.id !== id))
-              Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Producto eliminado',
-                showConfirmButton: false,
-                timer: 1500
-            })
-            }
+            position: 'center',
+            icon: 'success',
+            title: 'Producto eliminado',
+            showConfirmButton: false,
+            timer: 1500
         })
     }
 
@@ -144,6 +104,8 @@ const Carrito = () => {
         return (total*1.10).toFixed(0);
     }
 
+    const eliminar = <i className="fas fa-trash-alt"></i>
+
     useEffect(() => {
         localStorage.setItem('carrito', JSON.stringify(carrito))
     }, [carrito])
@@ -162,20 +124,15 @@ const Carrito = () => {
                     <div className='contenedorProductosCarrito'>
                         <div>
                             {carrito.map(producto => (
-                                // <SwipeableList key={producto.id} type={"IOS"}>
-                                //     <SwipeableListItem
-                                //         swipeLeft={{
-                                //         content: <div className='eliminarDelCarrito'>
-                                //             <i className="fas fa-trash-alt"></i>
-                                //         </div>,
-                                //         action: () => eliminarDelCarrito(producto.id)
-                                //         }}
-                                //     >
-                                <SwipeableList key={producto.id}>
-                                    <SwipeableListItem
-                                        leadingActions={leadingActions()}
-                                        trailingActions={trailingActions(producto.id)}
-                                     >
+                                <SwipeToDelete
+                                    key={producto.id}
+                                    onDelete={() => eliminarDelCarrito(producto.id)}
+                                    height={100}
+                                    transitionDuration={250}
+                                    deleteWidth={75}
+                                    deleteColor='rgba(252, 58, 48, 1.00)'
+                                    deleteComponent= {eliminar}
+                                >
                                         <div className='contenedorProductoCarrito shadow'>
                                             <div className='contenedorImagenCarrito'>
                                                 <img src={require(`../../assets/img/${producto.imagen}.png`)} alt={producto.nombre} />
@@ -189,8 +146,7 @@ const Carrito = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                  </SwipeableListItem>
-                                </SwipeableList>
+                                </SwipeToDelete>
                             ))}
                         </div>
                         <div className='contenedorBotonesPago'>
