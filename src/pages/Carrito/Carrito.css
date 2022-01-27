@@ -96,7 +96,6 @@
 }
 
 .eliminarDelCarrito i {
-  /* color: rgb(238, 13, 13); */
   color: #fff !important;
 }
 
@@ -108,8 +107,6 @@
 
 .btn-pago {
   width: 49%;
-  font-size: 18px !important;
-  font-weight: bold !important;
 }
 
 .btn-pago:focus {
