@@ -7,6 +7,7 @@ const AppProvider = ({children}) => {
     const [usuario, setUsuario] = useState(localStorage.getItem('usuario') === null ? false : true);
     const [carrito, setCarrito] = useState(JSON.parse(localStorage.getItem('carrito')) !== null ? JSON.parse(localStorage.getItem('carrito')) : [])
     const [menu, setMenu] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const agregarAlCarrito = (producto) => {
         Swal.fire({
@@ -48,7 +49,7 @@ const AppProvider = ({children}) => {
     }, [carrito])
 
     return (
-        <Context.Provider value={{ altura, usuario, setUsuario, carrito, setCarrito, agregarAlCarrito, menu, setMenu, handleMenu }}>
+        <Context.Provider value={{ altura, usuario, setUsuario, carrito, setCarrito, agregarAlCarrito, menu, setMenu, handleMenu, loading, setLoading }}>
             {children}
         </Context.Provider>
     )
