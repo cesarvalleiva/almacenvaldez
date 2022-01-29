@@ -1,10 +1,11 @@
 import React from 'react';
-import { useContext } from 'react/cjs/react.development';
+import { useContext } from 'react';
 import { Context } from '../../store/appContext';
 import './Ventas.css'
 
 const Ventas = () => {
-    const {altura, ventas, calcularTotal} = useContext(Context)
+    const {altura, ventas, calcularTotal} = useContext(Context);
+
     return ( 
         <div className='containerProducto' style={{height: `${altura}px`}}>
             <h3 className='w-100 text-center mt-3 mb-2'>Ventas</h3>
@@ -45,22 +46,11 @@ const Ventas = () => {
                         </div>
                     ))
                 :
-                <p>No hay ventas</p>
+                    <p className="textoCarritoVacio nombreProducto">No hay ventas</p>
                 }
             </div>
         </div>
-     );
+    );
 }
  
 export default Ventas;
-
-/* <div className='contenedorVenta shadow' key={idx}>
-    <div className='contenedorNumVentaYFormaPago'>
-        <p className='numVenta'>Nº de venta: {idx+1}</p>
-        <p>{venta[0].formapago === "efectivo" ? <><i class="far fa-money-bill-alt fa-lg iconoEfectivo"></i> Efectivo</> : <><img src={require(`../../assets/img/mercadopago.png`)} alt="Mercado pago" className='logomercadopagoventa' /> Mercadopago </>}</p>
-    </div>
-    <p className='totalVenta'>$ {venta[0].total}</p>
-    {venta.map(venta => (
-        <p>{venta.nombre}</p>
-    ))}
-</div> */
