@@ -6,6 +6,7 @@ const AppProvider = ({children}) => {
     const [altura,] = useState(window.innerHeight)
     const [usuario, setUsuario] = useState(localStorage.getItem('usuario') === null ? false : true);
     const [carrito, setCarrito] = useState(JSON.parse(localStorage.getItem('carrito')) !== null ? JSON.parse(localStorage.getItem('carrito')) : [])
+    const [ventas, setVentas] = useState(JSON.parse(localStorage.getItem('ventas')) !== null ? JSON.parse(localStorage.getItem('ventas')) : [])
     const [menu, setMenu] = useState(false);
     const [loading, setLoading] = useState(false);
 
@@ -44,12 +45,16 @@ const AppProvider = ({children}) => {
         setMenu(!menu);
     }
 
+    const calcularTotal = (precio, cantidad) => {
+        return precio*cantidad
+    }
+
     useEffect(() => {
         localStorage.setItem('carrito', JSON.stringify(carrito))
     }, [carrito])
 
     return (
-        <Context.Provider value={{ altura, usuario, setUsuario, carrito, setCarrito, agregarAlCarrito, menu, setMenu, handleMenu, loading, setLoading }}>
+        <Context.Provider value={{ altura, usuario, setUsuario, carrito, setCarrito, agregarAlCarrito, menu, setMenu, handleMenu, loading, setLoading, ventas, setVentas, calcularTotal }}>
             {children}
         </Context.Provider>
     )

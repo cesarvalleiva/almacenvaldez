@@ -2,23 +2,15 @@ import React, { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Context } from '../../store/appContext';
-import SwipeToDelete from 'react-swipe-to-delete-ios'
+import SwipeToDelete from 'react-swipe-to-delete-ios';
 import './Carrito.css'
 
 const Carrito = () => {
-    const {altura, carrito, setCarrito} = useContext(Context);
+    const {altura, carrito, setCarrito, setVentas, ventas, calcularTotal} = useContext(Context);
     const navigate = useNavigate();
-
 
     const eliminarDelCarrito = id => {
         setCarrito(carrito.filter(prod => prod.id !== id))
-        // Swal.fire({
-        //     position: 'center',
-        //     icon: 'success',
-        //     title: 'Producto eliminado',
-        //     showConfirmButton: false,
-        //     timer: 1500
-        // })
     }
 
     const vaciarCarrito = () => {
@@ -46,11 +38,20 @@ const Carrito = () => {
           })
     }
 
-    const calcularTotal = (precio, cantidad) => {
-        return precio*cantidad
+    const guardarVenta = (carrito, formaDePago) => {
+       if(formaDePago === "efectivo") {
+           carrito[0].total = calcularTotalCarritoEfectivo()
+           carrito[0].formapago = "efectivo"
+           carrito[0].id = 'a'+Date.now();
+       } else {
+           carrito[0].total = calcularTotalCarritoMercadopago()
+           carrito[0].formapago = "mercadopago"
+           carrito[0].id = 'a'+Date.now();
+       }
+        setVentas([...ventas, carrito ])
     }
 
-    const confirmacionPedidoMercadopago = () => {
+    const confirmacionPedidoMercadopago = (carrito) => {
         Swal.fire({
             position: 'center',
             icon: 'success',
@@ -58,11 +59,12 @@ const Carrito = () => {
             showConfirmButton: false,
             timer: 1500
         })
+        guardarVenta(carrito, "mercadopago")
         setCarrito([])
         navigate('/home')
     }
 
-    const confirmacionPedidoEnEfectivo = () => {
+    const confirmacionPedidoEnEfectivo = (carrito) => {
         Swal.fire({
             title: 'Confirmar pedido?',
             icon: 'question',
@@ -76,10 +78,11 @@ const Carrito = () => {
               Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Producto confirmado',
+                title: 'Pedido confirmado',
                 showConfirmButton: false,
                 timer: 1500
               })
+              guardarVenta(carrito, "efectivo")
               setCarrito([])
               navigate('/home')
             }
@@ -116,7 +119,8 @@ const Carrito = () => {
 
     useEffect(() => {
         localStorage.setItem('carrito', JSON.stringify(carrito))
-    }, [carrito])
+        localStorage.setItem('ventas', JSON.stringify(ventas))
+    }, [carrito, ventas])
     
     return ( 
         <div className='containerProducto' style={{height: `${altura}px`}}>
@@ -163,7 +167,7 @@ const Carrito = () => {
                                 <img src={require(`../../assets/img/mercadopago.png`)} alt="Mercado pago" />
                                 <p>$ {calcularTotalCarritoMercadopago()}</p>
                             </button>
-                            <button className='btn btn-pago btn-efectivo' onClick={() => confirmacionPedidoEnEfectivo()}>Efectivo: $ {calcularTotalCarritoEfectivo()}</button>
+                            <button className='btn btn-pago btn-efectivo' onClick={() => confirmacionPedidoEnEfectivo(carrito)}>Efectivo: $ {calcularTotalCarritoEfectivo()}</button>
                         </div>
                     </div>
                 :
@@ -184,8 +188,28 @@ const Carrito = () => {
                     </div>
                     <div className="modal-footer">
                         <div className="w-100 d-grid gap-2">
-                            <button className="btn btn-success" type="button" data-bs-dismiss="modal" onClick={() => confirmacionPedidoMercadopago()}>Pedido confimado</button>
+                            <button className="btn btn-success" type="button" data-bs-dismiss="modal" onClick={() => confirmacionPedidoMercadopago(carrito)}>Pedido confimado</button>
                         </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="modalPagoEfectivo" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="modal-title" id="modalPagoEfectivo">Abonar en efectivo</h5>
+                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body qrmercadopago">
+                        <h2>$ {calcularTotalCarritoEfectivo()}</h2>
+                    </div>
+                    <div className="modal-footer">
+                        {/* <div className="w-100 d-grid gap-2">
+                            <button className="btn btn-success" type="button" data-bs-dismiss="modal" onClick={() => confirmacionPedidoMercadopago()}>Pedido confimado</button>
+                        </div> */}
+                        
                     </div>
                     </div>
                 </div>

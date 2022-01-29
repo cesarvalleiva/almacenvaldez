@@ -8,6 +8,7 @@ import Producto from './pages/Producto';
 import './App.css';
 import Carrito from './pages/Carrito';
 import { AnimatePresence } from 'framer-motion';
+import Ventas from './pages/Ventas/Ventas';
 
 function App() {
   const location = useLocation()
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/home" element={usuario ? <Home /> : <Navigate to="/" />} />
           <Route path="/carrito" element={usuario ? <Carrito /> : <Navigate to="/" />} />
+          <Route path="/ventas" element={usuario ? <Ventas /> : <Navigate to="/" />} />
           <Route path="/:id" element={usuario ? <Producto /> : <Navigate to="/" />} />
         </Routes>
       </AnimatePresence>

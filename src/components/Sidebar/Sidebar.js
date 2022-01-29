@@ -20,7 +20,7 @@ const Sidebar = () => {
                 <div className='contenedorOpcionesSidebar'>
                     <ul>
                         <Link to="/home"><li><i className="fas fa-store"></i>Productos</li></Link>
-                        <li><i className="fas fa-tags"></i>Ventas</li>
+                        <Link to ="/ventas"><li><i className="fas fa-tags"></i>Ventas</li></Link>
                         <Link to="/carrito"><li><i className="fas fa-shopping-cart"></i>Carrito</li></Link>
                         <li><i className="fas fa-dollar-sign"></i>Liquidar</li>
                     </ul>

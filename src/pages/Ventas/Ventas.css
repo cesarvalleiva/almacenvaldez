@@ -1,0 +1,62 @@
+.contenedorVenta {
+  width: 95% !important;
+  /* height: 80px; */
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+.contenedorVenta h2 {
+  width: 100%;
+}
+
+.contenedorVenta p,
+.contenedorNumVentaYFormaPago p {
+  margin: 0 !important;
+}
+
+.contenedorVentaDetalle {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contenedorNumVentaYFormaPago {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.numVenta {
+  font-weight: bold;
+  color: rgb(110, 53, 154) !important;
+  font-size: 18px;
+}
+
+.totalVenta {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  color: rgb(110, 53, 154);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.iconoEfectivo {
+  width: 35px;
+  height: 35px;
+  margin-right: 3px;
+  display: flex;
+  align-items: center;
+  padding-left: 3px;
+}
+
+.logomercadopagoventa {
+  width: 35px !important;
+  margin-right: 3px;
+}
