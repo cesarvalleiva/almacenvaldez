@@ -137,7 +137,7 @@ const Home = () => {
                     <div className='contenedorHome' style={{height: `${altura}px`}}>
                         <div className='secciones'>
                             <div className="accordion w-100" id="accordionExample">
-                                <h3 className='w-100 text-center mt-2 mb-3'>Productos</h3>
+                                <h3 className='w-100 text-center mt-2 mb-3 tituloSeccion'>Productos</h3>
                                 {productos.length > 0 ? 
                                     productos.map(producto => (
                                         producto.stock > 0 ?
@@ -184,7 +184,7 @@ const Home = () => {
                                                             }
                                                         </div>
                                                         <div className="d-grid gap-2">
-                                                            <button className="btn btn-success btn-agregar" data-bs-toggle="collapse" data-bs-target={`#${producto.imagen}`} onClick={() => producto.tallecolor ? navigate(`/${producto.id}`) : agregarAlCarrito({...producto})} type="button">{producto.tallecolor ? 'Ver producto' : 'Agregar'}</button>
+                                                            <button className="btn btn-agregar" data-bs-toggle="collapse" data-bs-target={`#${producto.imagen}`} onClick={() => producto.tallecolor ? navigate(`/${producto.id}`) : agregarAlCarrito({...producto})} type="button">{producto.tallecolor ? 'Ver producto' : 'Agregar'}</button>
                                                         </div>
                                                     </div>
                                                 </div>

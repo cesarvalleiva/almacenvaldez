@@ -188,7 +188,7 @@ const Carrito = () => {
                     </div>
                     <div className="modal-footer">
                         <div className="w-100 d-grid gap-2">
-                            <button className="btn btn-success" type="button" data-bs-dismiss="modal" onClick={() => confirmacionPedidoMercadopago(carrito)}>Pedido confimado</button>
+                            <button className="btn btn-pagar-mercadopago" type="button" data-bs-dismiss="modal" onClick={() => confirmacionPedidoMercadopago(carrito)}>Pedido confimado</button>
                         </div>
                     </div>
                     </div>

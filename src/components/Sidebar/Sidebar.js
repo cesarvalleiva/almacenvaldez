@@ -16,7 +16,7 @@ const Sidebar = () => {
     return (
         <>
             <div className={`sidebar ${menu ? "openSidebar" : ""}`} onClick={handleMenu} style={{height: `${altura}px`}}>
-                <h2>Menu</h2>
+                <h2 className='tituloSeccion'>Menu</h2>
                 <div className='contenedorOpcionesSidebar'>
                     <ul>
                         <Link to="/home"><li><i className="fas fa-store"></i>Productos</li></Link>

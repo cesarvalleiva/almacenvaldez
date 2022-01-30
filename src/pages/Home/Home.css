@@ -57,15 +57,19 @@
   padding: 0 !important;
 }
 
+.tituloSeccion {
+  color: rgb(110, 53, 154) !important;
+}
+
 .nombreProducto {
   width: 220px;
-  font-weight: 700;
+  /* font-weight: 700; */
   color: rgb(110, 53, 154) !important;
   /* color: #f0a500 !important; */
 }
 
 .precioProducto {
-  font-weight: 700;
+  /* font-weight: 700; */
   color: rgb(110, 53, 154) !important;
   /* color: #f0a500 !important; */
 }
@@ -120,6 +124,8 @@
   width: 100%;
   padding-top: 2px !important;
   margin-top: 10px;
+  background-color: rgb(148, 108, 223) !important;
+  color: #fff !important;
 }
 
 .btn-agregar:focus {

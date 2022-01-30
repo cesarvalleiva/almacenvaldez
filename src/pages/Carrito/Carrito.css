@@ -137,7 +137,8 @@
   width: 100%;
 }
 
-.btn-efectivo {
+.btn-efectivo,
+.btn-pagar-mercadopago {
   background-color: rgb(148, 108, 223) !important;
   color: #fff !important;
 }
@@ -182,7 +183,7 @@
   background-color: rgb(223, 37, 37) !important;
 }
 
-.sc-bwzfXH{
+.sc-bwzfXH {
   background-color: #fff !important;
 }
 
