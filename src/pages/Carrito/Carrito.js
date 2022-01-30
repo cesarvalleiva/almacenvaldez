@@ -128,7 +128,7 @@ const Carrito = () => {
                 <Link to="/home" className='volverAlHome'><i className="fas fa-arrow-left"></i> Volver</Link>
                 {carrito.length > 0 ? 
                     <div className='w-100 d-flex justify-content-between align-items-center'>
-                        <h3 className='mb-4 mt-3'>Carrito</h3>
+                        <h3 className='mb-4 mt-3 tituloSeccion'>Carrito</h3>
                         <button className='btn btn-danger btn-sm btn-vaciarCarrito' onClick={() => vaciarCarrito()}>Vaciar carrito</button>
                     </div>
                 : ''}
