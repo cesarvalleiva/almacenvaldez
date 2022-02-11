@@ -6,6 +6,18 @@
   justify-content: space-between;
 }
 
+.contenedorTodosEnCarrito {
+  width: 100%;
+  height: 75%;
+  margin-top: 80px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
 .contenedorProductoCarrito {
   width: 100%;
   height: 91px;

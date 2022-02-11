@@ -20,7 +20,7 @@ const Producto = () => {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit = {{ opacity: 0}}>
             <div className='containerProducto' style={{height: `${altura}px`}}>
                 <div className='contenedorProducto shadow'>
-                    <Link to="/home" className='volverAlHome'><i className="fas fa-arrow-left"></i> Volver</Link>
+                    <Link to="/home" className='volverAlHome ms-1'><i className="fas fa-arrow-left"></i> Volver</Link>
                     <div className="card cardProducto">
                         <img src={require('../../assets/img/remeralunanegra.png')} className="card-img-top" alt="remera luna" />
                         <div className="card-body cuerpoDetalleProducto">
@@ -42,7 +42,7 @@ const Producto = () => {
                                     </select>
                                 </div>
                                 <div className="d-grid gap-2 mt-3">
-                                    <button className="btn btn-success btn-agregar" type="button">Agregar</button>
+                                    <button className="btn btn-agregar" type="button">Agregar</button>
                                 </div>
                             </div>
                         </div>

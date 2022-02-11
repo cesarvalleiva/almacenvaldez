@@ -124,7 +124,7 @@ const Carrito = () => {
     
     return ( 
         <div className='containerProducto' style={{height: `${altura}px`}}>
-            <div className='contenedorProducto'>
+            <div className='contenedorTodosEnCarrito'>
                 <Link to="/home" className='volverAlHome ms-1'><i className="fas fa-arrow-left"></i> Volver</Link>
                 {carrito.length > 0 ? 
                     <div className='w-100 d-flex justify-content-between align-items-center'>
