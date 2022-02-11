@@ -1,6 +1,6 @@
 .containerProducto {
   width: 100vw;
-  /* background-color: rgb(110, 53, 154); */
+  height: 100vh;
   background-color: #f4f4f4;
   display: flex;
   flex-wrap: wrap;
@@ -10,16 +10,18 @@
 
 .contenedorProducto {
   width: 95%;
-  height: calc(100% - 90px);
-  background-color: #fff;
-  margin-top: 10px;
-  /* border-radius: 10px; */
+  height: 75%;
+  margin-top: 80px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   overflow: hidden;
   overflow-y: scroll;
+}
+
+.contenedorProducto::-webkit-scrollbar {
+  width: 0;
 }
 
 .cardProducto {

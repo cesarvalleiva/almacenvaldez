@@ -141,7 +141,7 @@ const Home = () => {
                                 {productos.length > 0 ? 
                                     productos.map(producto => (
                                         producto.stock > 0 ?
-                                            <div className="accordion-item contenedorTituloProducto shadow" key={producto.id}>
+                                            <div className="accordion-item contenedorTituloProducto shadow-sm" key={producto.id}>
                                                 <h2 className="accordion-header" id={producto}>
                                                     <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#${producto.imagen}`} aria-expanded="true" aria-controls={producto.imagen}>
                                                         <div className='contenedorTituloYPrecio'>

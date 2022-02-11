@@ -1,5 +1,6 @@
 .contenedorHome {
   width: 100vw;
+  max-height: 100vh;
   /* background-color: rgb(110, 53, 154); */
   /* background-color: #1a1c20; */
   background-color: #f4f4f4;
@@ -11,7 +12,8 @@
 
 .secciones {
   width: 100%;
-  height: calc(100% - 90px);
+  height: 100%;
+  margin-top: 70px;
   /* background-color: #fff; */
   /* background-color: rgb(110, 53, 154); */
   /* border: 1px solid rgb(110, 53, 154); */
@@ -23,6 +25,12 @@
   justify-content: space-between;
   overflow: hidden;
   overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 2;
+}
+
+.secciones::-webkit-scrollbar {
+  width: 0;
 }
 
 .contenedorTituloProducto {

@@ -162,7 +162,7 @@ const Carrito = () => {
                                 </SwipeToDelete>
                             ))}
                         </div>
-                        <div className='contenedorBotonesPago'>
+                        <div className='contenedorBotonesPago shadow'>
                             <button className='btn btn-pago btn-mercadopago' type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <img src={require(`../../assets/img/mercadopago.png`)} alt="Mercado pago" />
                                 <p>$ {calcularTotalCarritoMercadopago()}</p>
@@ -204,12 +204,6 @@ const Carrito = () => {
                     </div>
                     <div className="modal-body qrmercadopago">
                         <h2>$ {calcularTotalCarritoEfectivo()}</h2>
-                    </div>
-                    <div className="modal-footer">
-                        {/* <div className="w-100 d-grid gap-2">
-                            <button className="btn btn-success" type="button" data-bs-dismiss="modal" onClick={() => confirmacionPedidoMercadopago()}>Pedido confimado</button>
-                        </div> */}
-                        
                     </div>
                     </div>
                 </div>
