@@ -9,7 +9,7 @@ const Ventas = () => {
     return ( 
         <div className='containerProducto' style={{height: `${altura}px`}}>
             <div className="contenedorProducto">
-                <h3 className='w-100 text-center mt-2 mb-3 tituloSeccion'>Ventas</h3>
+                <h3 className='w-100 text-center mt-1 mb-3 tituloSeccion'>Ventas</h3>
                 <div className="accordion contenedorVenta" id="accordionExamplee">
                     {ventas.length > 0 ? 
                         ventas.map((venta, idx) => (
